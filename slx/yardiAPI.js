@@ -3,9 +3,7 @@
 /////////////////
 
 // Request parameters
-const data = JSON.stringify({"auth":{"type":"basic"},"requestId":15,"method":{"name":"getUnitsAvailabilityAndPricing","version":"r1","params":{"propertyId":"775371","availableUnitsOnly":"0","unavailableUnitsOnly":"0","skipPricing":"0","showChildProperties":"0","includeDisabledFloorplans":"0","includeDisabledUnits":"0","showUnitSpaces":"0","useSpaceConfiguration":"0","allowLeaseExpirationOverride":"0"}}});
 
-var xhr = new XMLHttpRequest();
 var dataReady = false;
 var unitTypes = [];
 var units = [];
@@ -143,7 +141,27 @@ xhr.addEventListener('readystatechange', function() {
 });
 
 // Request data
-xhr.open("GET", "https://api.rentcafe.com/rentcafeapi.aspx?requestType=apartmentavailability&APIToken=e72e7643-92d3-404c-a730-9a54fc39c6f8&propertyCode=p1186669",true);
-xhr.responseType = 'json';
+var getJSON = function(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+      var status = xhr.status;
+      if (status === 200) {
+        callback(null, xhr.response);
+      } else {
+        callback(status, xhr.response);
+      }
+    };
+    xhr.send();
+};
 
-xhr.send(data);
+
+getJSON('https://api.rentcafe.com/rentcafeapi.aspx?requestType=apartmentavailability&APIToken=e72e7643-92d3-404c-a730-9a54fc39c6f8&propertyCode=p1186669',
+function(err, data) {
+  if (err !== null) {
+    alert('Something went wrong: ' + err);
+  } else {
+    alert('Your query count: ' + data.query.count);
+  }
+});
