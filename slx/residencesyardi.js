@@ -182,7 +182,7 @@ function filterCheck(item, unitType, units, apts) {
 				let actvFltr = Number(actvFltrs[j]);
 				// Comparators
 				if(j == 0) {if(actvFltr != unitType[1]) {aptVis[i] = false; break}} // #beds
-				if(j == 1) {if(actvFltr != units[i][1]) {aptVis[i] = false; break}} // floor#
+				if(j == 1) {if(actvFltr != units[2]) {aptVis[i] = false; break}} // floor#
 				let hidden = false;
 				if(j == 2) {for(let k = 1; k < 3; k++) {if(actvFltr != units[i][3][k]) {hidden = true}}}
 				if(hidden == true) {aptVis[i] = false; break}  // price
@@ -199,6 +199,7 @@ function filterCheck(item, unitType, units, apts) {
 					else if(fltrDay > avaiDay) {aptVis[i] = false; break} // Day
 				}
 				// If unit passes all filters
+				console.log('At filter');
 				aptVis[i] = true;
 			}
 		}
