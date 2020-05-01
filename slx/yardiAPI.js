@@ -24,6 +24,7 @@ function priceRange(price) {
 }
 
 function populateApts() {
+	console.log(units);
 	for(let i = 0; i < unitTypes.length; i++) {
 		let aptDiv = {}
 		// Match unitTypes[i] to its corresponding list item + store its aptDiv
@@ -38,6 +39,7 @@ function populateApts() {
 			let newApt = aptDiv.cloneNode(true);
 			let txtArr = newApt.querySelectorAll(".res-lst-apt-txt");
 			let mapView = newApt.querySelector(".res-lst-apt-txt-div.map");
+			console.log(units[i][j][0]);
 			txtArr[0].innerText = "APT " + units[i][j][0];
 			txtArr[1].innerText = "Floor " + units[i][j][1];
 			txtArr[2].innerText = "Available " + units[i][j][2];
