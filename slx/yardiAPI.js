@@ -125,7 +125,7 @@ fpprice.push(minPrice,maxPrice);
 unitTypes.push([[jsonUnitTypes[i].FloorplanName.toUpperCase()], beds, fpfloors, fpprice, []]);
 
 // Set units[] length to match unitTypes[] + set each entry as []
-units.push([jsonUnitTypes[i].ApartmentName.toUpperCase(), letfloorNumnew, jsonUnitTypes[i].AvailableDate, [minPrice, maxPrice]]);
+units.push([jsonUnitTypes[i].ApartmentName.substring(2), letfloorNumnew, jsonUnitTypes[i].AvailableDate, [minPrice, maxPrice]]);
 
 }
 
