@@ -181,22 +181,15 @@ function filterCheck(item, unitType, units, apts) {
 				if(actvFltrs[j] == undefined || actvFltrs[j].length == 0) {continue}
 				let actvFltr = Number(actvFltrs[j]);
 				// Comparators
+				
 				if(j == 0) {if(actvFltr != unitType[1]) {aptVis[i] = false; break}} // #beds
 				if(j == 1) {if(actvFltr != units[2]) {aptVis[i] = false; break}} // floor#
 				let hidden = false;
-				if(j == 2) {for(let k = 1; k < 3; k++) {if(actvFltr != units[i][3][k]) {hidden = true}}}
-				if(hidden == true) {aptVis[i] = false; break}  // price
+				console.log(actvFltr);
+				if(j == 2) {for(let k = 1; k < 3; k++) {if(actvFltr != units[i][k]) {hidden = true}}}
+			
 				if(j == 3) {
-					let fltrDate = actvFltrs[3].split("/");
-					let avaiDate = units[i][2].split("/");
-					let fltrYr = Number(fltrDate[2]); let avaiYr = Number(avaiDate[2]);
-					let fltrMth = Number(fltrDate[0]); let avaiMth = Number(avaiDate[0]);
-					let fltrDay = Number(fltrDate[1]); let avaiDay = Number(avaiDate[1]);
-					if(fltrYr > avaiYr) {aptVis[i] = false; break} // Year
-					else if(fltrYr < avaiYr) {}
-					else if(fltrMth > avaiMth) {aptVis[i] = false; break} // Month
-					else if(fltrMth < avaiMth) {}
-					else if(fltrDay > avaiDay) {aptVis[i] = false; break} // Day
+			
 				}
 				// If unit passes all filters
 				console.log('At filter');
