@@ -1,5 +1,5 @@
 /////////////////
-// Entrata API //
+// Yardi API //
 /////////////////
 
 // Request parameters
@@ -143,8 +143,7 @@ xhr.addEventListener('readystatechange', function() {
 });
 
 // Request data
-xhr.open("POST", "https://matrixresidential.entrata.com/api/v1/propertyunits");
+xhr.open("POST", "https://api.rentcafe.com/rentcafeapi.aspx?requestType=apartmentavailability&APIToken=e72e7643-92d3-404c-a730-9a54fc39c6f8&propertyCode=p1186669");
 xhr.setRequestHeader("Content-Type", "application/json");
-xhr.setRequestHeader("Authorization", "Basic ZnJlZF9hZ2VuY3lfYXBpQG1hdHJpeHJlc2lkZW50aWFsOkZyZWQxMzAyMDIwKg==");
 
 xhr.send(data);
