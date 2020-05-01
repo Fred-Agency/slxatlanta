@@ -30,7 +30,7 @@ function populateApts() {
 		// Match unitTypes[i] to its corresponding list item + store its aptDiv
 		for(let j = 0; j < lstArr.length; j ++) {
 			aptDiv = lstArr[j].querySelector(".res-lst-apt-div");
-			if(aptDiv.dataset.apt.toUpperCase() == unitTypes[i][0][0]) {break}
+			if(aptDiv.dataset.apt.toUpperCase() == unitTypes[i][0]) {break}
 		}
 		// For each units[i], clone aptDiv + populate
 		apts.push([]);
@@ -40,12 +40,15 @@ function populateApts() {
 			let txtArr = newApt.querySelectorAll(".res-lst-apt-txt");
 			let mapView = newApt.querySelector(".res-lst-apt-txt-div.map");
 			console.log(units[i][j][0]);
-			txtArr[0].innerText = "APT " + units[i][j][0];
-			txtArr[1].innerText = "Floor " + units[i][j][1];
-			txtArr[2].innerText = "Available " + units[i][j][2];
-			txtArr[3].innerText = "Starting at $" + units[i][j][3][0];
+			console.log(units[i][j][2]);
+			console.log(units[i][j][3]);
+			console.log(units[j][0]);
+			txtArr[0].innerText = "APT " + units[j][0];
+			txtArr[1].innerText = "Floor " + units[j][1];
+			txtArr[2].innerText = "Available " + units[j][2];
+			txtArr[3].innerText = "Starting at $" + units[j][3][0];
 			// Click to display unit on sitemap
-			mapView.addEventListener('click', () => {changeFloor(units[i][j][1])});
+			mapView.addEventListener('click', () => {changeFloor(units[j][1])});
 			newApt.style.display = "flex";
 			aptCon.appendChild(newApt);
 			// Store newApt(s) relative to their parent unit type
@@ -129,13 +132,13 @@ units.push([jsonUnitTypes[i].FloorplanName.toUpperCase(), floorNum, jsonUnitType
 }
 
 
-}
-	
-
 		populateApts();
 		if(curSt == 1) {changeSlide()}
 		dataReady = true;
-		for(let i = 0; i < fltrArr.length; i++) {fltrArr[i].disabled = false}	
+		for(let i = 0; i < fltrArr.length; i++) {fltrArr[i].disabled = false}		
+	
+	
+}
 	
 });
 
