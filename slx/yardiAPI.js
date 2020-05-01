@@ -128,12 +128,15 @@ units.push([jsonUnitTypes[i].FloorplanName.toUpperCase(), floorNum, jsonUnitType
 
 }
 
+
+}
+	
+
 		populateApts();
 		if(curSt == 1) {changeSlide()}
 		dataReady = true;
-		for(let i = 0; i < fltrArr.length; i++) {fltrArr[i].disabled = false}
-
-}
+		for(let i = 0; i < fltrArr.length; i++) {fltrArr[i].disabled = false}	
+	
 });
 
     
@@ -148,16 +151,6 @@ getJSON('https://api.rentcafe.com/rentcafeapi.aspx?requestType=apartmentavailabi
     if (err != null) {
         console.error(err);
     } else {
-
-
-var fpsize = data.length;
-
-
-data.forEach(function (arrayItem) {
-    var FloorplanName = arrayItem.FloorplanName;
-//console.log(FloorplanName);
-});
-
 
     }
 });
