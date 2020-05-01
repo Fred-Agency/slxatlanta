@@ -134,7 +134,7 @@ units.push([jsonUnitTypes[i].ApartmentName.substring(2), parseInt(letfloorNumnew
 		dataReady = true;
 		for(let i = 0; i < fltrArr.length; i++) {fltrArr[i].disabled = false}		
 	
-	
+console.log(jsonUnitTypes);
 }
 	
 });
