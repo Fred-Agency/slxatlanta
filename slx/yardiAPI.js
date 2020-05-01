@@ -39,10 +39,6 @@ function populateApts() {
 			let newApt = aptDiv.cloneNode(true);
 			let txtArr = newApt.querySelectorAll(".res-lst-apt-txt");
 			let mapView = newApt.querySelector(".res-lst-apt-txt-div.map");
-			console.log(units[j][0]);
-			console.log(units[j][1]);
-			console.log(units[j][2]);
-			console.log(units[i][j][3]);
 			txtArr[0].innerText = "APT " + units[j][0];
 			txtArr[1].innerText = "Floor " + units[j][1];
 			txtArr[2].innerText = "Available " + units[j][2];
@@ -117,17 +113,19 @@ let fpfloors = [];
 let fpprice = [];
 beds.push(jsonUnitTypes[i].Beds);
 // Floor #
-let floorNum = jsonUnitTypes[i].FloorplanId - 2663330;
-fpfloors.push(floorNum);
+let floorNum = jsonUnitTypes[i].ApartmentName;
+letfloorNumnew = floorNum.charAt(2);
+fpfloors.push(letfloorNumnew);
 // Price range
 let minPrice = jsonUnitTypes[i].MinimumRent;
 let maxPrice = jsonUnitTypes[i].MaximumRent;
 fpprice.push(minPrice,maxPrice);
 
+
 unitTypes.push([[jsonUnitTypes[i].FloorplanName.toUpperCase()], beds, fpfloors, fpprice, []]);
 
 // Set units[] length to match unitTypes[] + set each entry as []
-units.push([jsonUnitTypes[i].FloorplanName.toUpperCase(), floorNum, jsonUnitTypes[i].AvailableDate, [minPrice, maxPrice]]);
+units.push([jsonUnitTypes[i].ApartmentName.toUpperCase(), letfloorNumnew, jsonUnitTypes[i].AvailableDate, [minPrice, maxPrice]]);
 
 }
 
