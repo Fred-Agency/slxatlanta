@@ -23,11 +23,6 @@ function priceRange(price) {
 	else {return 5}
 }
 
-function pushToUnitTypes(i, j, item) {
-	if(unitTypes[i][j].length > 0 && unitTypes[i][j].includes(item)) {}
-	else {unitTypes[i][j].push(item)}
-}
-
 function populateApts() {
 	for(let i = 0; i < unitTypes.length; i++) {
 		let aptDiv = {}
