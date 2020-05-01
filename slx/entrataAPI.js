@@ -40,7 +40,12 @@ function populateApts() {
 		}
 		// For each units[i], clone aptDiv + populate
 		apts.push([]);
+		console.log(units);
 		for(let j = 0; j < units[i].length; j++) {
+			console.log(units[i][j][0]);
+			console.log(units[i][j][1]);
+			console.log(units[i][j][2]);
+			console.log(units[i][j][3][0]);
 			let aptCon = aptDiv.parentNode
 			let newApt = aptDiv.cloneNode(true);
 			let txtArr = newApt.querySelectorAll(".res-lst-apt-txt");
@@ -139,6 +144,7 @@ xhr.addEventListener('readystatechange', function() {
 		if(curSt == 1) {changeSlide()}
 		dataReady = true;
 		for(let i = 0; i < fltrArr.length; i++) {fltrArr[i].disabled = false}
+		console.log(jsonUnitTypes);
 	}
 });
 
