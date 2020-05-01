@@ -121,11 +121,10 @@ let minPrice = jsonUnitTypes[i].MinimumRent;
 let maxPrice = jsonUnitTypes[i].MaximumRent;
 fpprice.push(minPrice,maxPrice);
 
-
-unitTypes.push([[jsonUnitTypes[i].FloorplanName.toUpperCase()], beds, fpfloors, fpprice, []]);
+unitTypes.push([[jsonUnitTypes[i].FloorplanName.toUpperCase()], beds, parseInt(fpfloors), fpprice, []]);
 
 // Set units[] length to match unitTypes[] + set each entry as []
-units.push([jsonUnitTypes[i].ApartmentName.substring(2), letfloorNumnew, jsonUnitTypes[i].AvailableDate, [minPrice, maxPrice]]);
+units.push([jsonUnitTypes[i].ApartmentName.substring(2), parseInt(letfloorNumnew), jsonUnitTypes[i].AvailableDate, [parseFloat(minPrice).toLocaleString(), parseFloat(minPrice).toLocaleString(), parseFloat(maxPrice).toLocaleString()]]);
 
 }
 
