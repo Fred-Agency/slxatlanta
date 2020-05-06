@@ -63,6 +63,7 @@ function changeFloor(i) {
 	}, z);
 	// Show new floor's units + set new curFl
 	setTimeout(function() {opacity1(sitemapConts[y]); curFl = y}, z + 200)
+console.log(sitemapConts[y]);	
 }
 
 function changeSlide() {
@@ -171,7 +172,10 @@ function aptFltr(apt, x) {
 
 function filterCheck(item, unitType, units, apts) {
 	if(dataReady == true) {
+		console.log(units);
+		
 		let aptVis = [];
+		
 		// Determine visibility of each unit of this unit type
 		for(let i = 0; i < units.length; i++) {
 			if(actvFltrs.length == 0) {aptVis[i] = true; continue}
