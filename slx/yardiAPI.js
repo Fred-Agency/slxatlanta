@@ -1,6 +1,6 @@
-/////////////////
+///////////////
 // Yardi API //
-/////////////////
+///////////////
 
 // Request parameters
 
@@ -95,62 +95,49 @@ var getJSON = function(url, callback) {
     
         var status = xhr.status;
         
-        if (status == 200) {
-            callback(null, xhr.response);
-        } else {
-            callback(status);
-        }
+        if (status == 200) {callback(null, xhr.response);}
+        else {callback(status);}
     };
 
-xhr.addEventListener('readystatechange', function() {
-if(this.readyState == 4) {
-
-let jsonUnitTypes = this.response;
-	// Populate unitTypes[] with name & # of bedrooms of each + empty arrays
-		for(let i = 0; i < jsonUnitTypes.length; i++) {
-let beds = [];
-let fpfloors = [];
-let fpprice = [];
-beds.push(jsonUnitTypes[i].Beds);
-// Floor #
-let floorNum = jsonUnitTypes[i].ApartmentName;
-letfloorNumnew = floorNum.charAt(2);
-fpfloors.push(letfloorNumnew);
-// Price range
-let minPrice = jsonUnitTypes[i].MinimumRent;
-let maxPrice = jsonUnitTypes[i].MaximumRent;
-fpprice.push(minPrice,maxPrice);
-
-unitTypes.push([[jsonUnitTypes[i].FloorplanName.toUpperCase()], beds, parseInt(fpfloors), fpprice, []]);
-
-// Set units[] length to match unitTypes[] + set each entry as []
-units.push([jsonUnitTypes[i].ApartmentName.substring(2), parseInt(letfloorNumnew), jsonUnitTypes[i].AvailableDate, [parseFloat(minPrice).toLocaleString(), parseFloat(minPrice).toLocaleString(), parseFloat(maxPrice).toLocaleString()]]);
-
-}
-
-
-		populateApts();
-		if(curSt == 1) {changeSlide()}
-		dataReady = true;
-		for(let i = 0; i < fltrArr.length; i++) {fltrArr[i].disabled = false}		
-	
-console.log(jsonUnitTypes);
-}
-	
-});
-
-    
+	xhr.addEventListener('readystatechange', function() {
+		if(this.readyState == 4) {
+			let jsonUnits = this.response;
+			for(let i = 0; i < jsonUnits.length; i++) {
+				// Establish attributes
+				let unitType = jsonUnits[i].FloorplanName;
+				let beds = [jsonUnits[i].Beds];
+				let aptNum = jsonUnits[i].ApartmentName.substring(2);
+				let floorNum = Number(aptNum.charAt(0));
+				let avaiDate = jsonUnits[i].AvailableDate;
+				let minRent = jsonUnits[i].MinimumRent;
+				let minPrice = priceRange(Number(jsonUnits[i].MinimumRent));
+				let maxPrice = priceRange(Number(jsonUnits[i].MaximumRent));
+				// Check for existing unit type
+				let typeMatch = false;
+				let matchedType = 0;
+				for(let j = 0; j < unitTypes.length; j++) {
+					if(unitTypes[j][0][0] == unitType) {typeMatch = true; matchedType = j; break}
+				}
+				// If no match, push to unitTypes[] & push empty [] to units[]
+				if(typeMatch == false) {
+					unitTypes.push([unitType, beds]);
+					units.push([]);
+					matchedType = unitTypes.length - 1
+				}
+				// Push unit to corresponding type array in units[]
+				units[matchedType].push([aptNum, floorNum, avaiDate, [minRent, minPrice, maxPrice]])
+			}
+			populateApts();
+			if(curSt == 1) {changeSlide()}
+			dataReady = true;
+			for(let i = 0; i < fltrArr.length; i++) {fltrArr[i].disabled = false}	
+		}
+	});
     xhr.send();
 };
 
-
-
-
 getJSON('https://api.rentcafe.com/rentcafeapi.aspx?requestType=apartmentavailability&APIToken=e72e7643-92d3-404c-a730-9a54fc39c6f8&propertyCode=p1186669',  function(err, data) {
     
-    if (err != null) {
-        console.error(err);
-    } else {
-
-    }
+    if (err != null) {console.error(err);}
+    else {}
 });
