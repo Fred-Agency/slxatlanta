@@ -49,6 +49,7 @@ function populateApts() {
 			aptCon.appendChild(newApt);
 			// Store newApt(s) relative to their parent unit type
 			apts[i].push(newApt)
+			console.log(apts[i]);	
 		}
 	}
 	// Set avai or unavai SVGs for each sitemap layer
