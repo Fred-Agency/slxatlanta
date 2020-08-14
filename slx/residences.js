@@ -63,7 +63,6 @@ function changeFloor(i) {
 	}, z);
 	// Show new floor's units + set new curFl
 	setTimeout(function() {opacity1(sitemapConts[y]); curFl = y}, z + 200)
-console.log(sitemapConts[y]);	
 }
 
 function changeSlide() {
@@ -172,10 +171,7 @@ function aptFltr(apt, x) {
 
 function filterCheck(item, unitType, units, apts) {
 	if(dataReady == true) {
-		console.log(units);
-		
 		let aptVis = [];
-		
 		// Determine visibility of each unit of this unit type
 		for(let i = 0; i < units.length; i++) {
 			if(actvFltrs.length == 0) {aptVis[i] = true; continue}
@@ -295,19 +291,23 @@ function switchView() {
 	// Gallery to List
 	if(curVu == 0) {
 		curVu = 1;
-		contDiv.style.transform = "translateX(-100%)";
+		//contDiv.style.transform = "translateX(-100%)";
 		// Gallery
-		galMaxH = "0rem";
+		//galMaxH = "0rem";
 		// List
-		if(curSt == 0) {lstDiv.style.maxHeight = "" + lstArr.length * 12 + "rem"}
-		else {lstDiv.style.maxHeight = lstMaxH}
+		if(curSt == 0) {
+			//lstDiv.style.maxHeight = "" + lstArr.length * 12 + "rem"
+		}
+		else {
+			//lstDiv.style.maxHeight = lstMaxH
+		}
 		// Switcher
 		opacity0(txt); setTimeout(function() {txt.innerText = "View Gallery"; opacity1(txt)}, 400);
 	}
 	// List to Gallery
 	else {
 		curVu = 0;
-		contDiv.style.transform = "translateX(0%)";
+		//contDiv.style.transform = "translateX(0%)";
 		// Gallery
 		if(galArr.length%2 != 0) {galNum = galArr.length + 1}
 		else {galNum = galArr.length}
