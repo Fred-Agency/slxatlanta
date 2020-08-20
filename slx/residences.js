@@ -318,7 +318,12 @@ function switchView() {
 		// Switcher
 		opacity0(txt); setTimeout(function() {txt.innerText = "View All"; opacity1(txt)}, 400);
 	}
-	galDiv.style.maxHeight = galMaxH;
+	
+if (galDiv != null) {
+    galDiv.style.maxHeight = galMaxH;
+}
+	
+	
 }
 
 // View all
