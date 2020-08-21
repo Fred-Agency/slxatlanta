@@ -253,11 +253,14 @@ function filter() {
 				for(let j = 0; j < unitTypes.length; j++) {
 					if(unitTypes[j][0][0] == tempData.name.toUpperCase()) {filterCheck(lstArr[i], unitTypes[j], units[j], apts[j])}
 					console.log(unitTypes[j][0][0]);
+					console.log('====');
 					console.log(tempData.name.toUpperCase());
 				}
 			}
 			else {filterCheck(lstArr[i], tempAttrs)}
+			console.log('lstArrSart');
 					console.log(lstArr[i]);
+			console.log('lstArrEND');
 		}
 	changeFloor()
 	}, x)
