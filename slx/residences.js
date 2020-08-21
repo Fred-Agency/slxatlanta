@@ -252,12 +252,14 @@ function filter() {
 				// Match current lstArr[i] to correct unitType[j] + filterCheck()
 				for(let j = 0; j < unitTypes.length; j++) {
 					if(unitTypes[j][0][0] == tempData.name.toUpperCase()) {filterCheck(lstArr[i], unitTypes[j], units[j], apts[j])}
+					console.log(unitTypes[j][0][0]);
+					console.log(tempData.name.toUpperCase());
 				}
 			}
 			else {filterCheck(lstArr[i], tempAttrs)}
+					console.log(lstArr[i]);
 		}
 	changeFloor()
-		console.log(lstArr[i]);
 	}, x)
 }
 
