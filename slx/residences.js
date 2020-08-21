@@ -291,16 +291,12 @@ function switchView() {
 	// Gallery to List
 	if(curVu == 0) {
 		curVu = 1;
-		//contDiv.style.transform = "translateX(-100%)";
+		contDiv.style.transform = "translateX(-100%)";
 		// Gallery
 		galMaxH = "0rem";
 		// List
-		if(curSt == 0) {
-			lstDiv.style.maxHeight = "" + lstArr.length * 12 + "rem"
-		}
-		else {
-			lstDiv.style.maxHeight = lstMaxH
-		}
+		if(curSt == 0) {lstDiv.style.maxHeight = "" + lstArr.length * 12 + "rem"}
+		else {lstDiv.style.maxHeight = lstMaxH}
 		// Switcher
 		opacity0(txt); setTimeout(function() {txt.innerText = "View Gallery"; opacity1(txt)}, 400);
 	}
@@ -318,12 +314,7 @@ function switchView() {
 		// Switcher
 		opacity0(txt); setTimeout(function() {txt.innerText = "View All"; opacity1(txt)}, 400);
 	}
-	
-if (galDiv != null) {
-    galDiv.style.maxHeight = galMaxH;
-}
-	
-	
+	galDiv.style.maxHeight = galMaxH;
 }
 
 // View all
