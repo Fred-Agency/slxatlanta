@@ -63,7 +63,7 @@ function changeFloor(i) {
 	}, z);
 	// Show new floor's units + set new curFl
 	setTimeout(function() {opacity1(sitemapConts[y]); curFl = y}, z + 200)
-	console.log(curFl);
+	// console.log(curFl);
 }
 
 function changeSlide() {
@@ -171,6 +171,14 @@ function aptFltr(apt, x) {
 }
 
 function filterCheck(item, unitType, units, apts) {
+
+		// Reset filter selectors
+		for(let i = 0; i < fltrArr.length - 1; i++) {fltrArr[i].selectedIndex = 0}
+		fltrArr[3].value = "";
+		// Remove all active filters
+		actvFltrs = [];
+
+	filter();
 	if(dataReady == true) {
 		let aptVis = [];
 		// Determine visibility of each unit of this unit type
@@ -252,21 +260,21 @@ function filter() {
 				// Match current lstArr[i] to correct unitType[j] + filterCheck()
 				for(let j = 0; j < unitTypes.length; j++) {
 					if(unitTypes[j][0][0] == tempData.name.toUpperCase()) {filterCheck(lstArr[i], unitTypes[j], units[j], apts[j])}
-					console.log(unitTypes[j][0][0]);
-					console.log('====');
-					console.log(tempData.name.toUpperCase());
-					console.log('====unitTypes==');
-					console.log(unitTypes[j]);
-					console.log('====units==');
-					console.log(units[j]);
-					console.log('====apts==');
-					console.log(apts[j]);
+					// console.log(unitTypes[j][0][0]);
+					// console.log('====');
+					// console.log(tempData.name.toUpperCase());
+					// console.log('====unitTypes==');
+					// console.log(unitTypes[j]);
+					// console.log('====units==');
+					// console.log(units[j]);
+					// console.log('====apts==');
+					// console.log(apts[j]);
 				}
 			}
 			else {filterCheck(lstArr[i], tempAttrs)}
-			console.log('lstArrSart');
-					console.log(lstArr[i]);
-			console.log('lstArrEND');
+			// console.log('lstArrSart');
+					// console.log(lstArr[i]);
+			// console.log('lstArrEND');
 		}
 	changeFloor()
 	}, x)
