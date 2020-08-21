@@ -171,13 +171,6 @@ function aptFltr(apt, x) {
 }
 
 function filterCheck(item, unitType, units, apts) {
-
-		// Reset filter selectors
-		for(let i = 0; i < fltrArr.length - 1; i++) {fltrArr[i].selectedIndex = 0}
-		fltrArr[3].value = "";
-		// Remove all active filters
-		actvFltrs = [];
-
 	filter();
 	if(dataReady == true) {
 		let aptVis = [];
