@@ -36,7 +36,7 @@ for(let i = 1; i < fltrArr.length; i++) {fltrArr[i].disabled = true}
 const switcher = document.querySelector(".res-fltr-all-div");
 
 // Current vars
-var curVu = 0; // View: 0 = Gallery, 1 = List
+var curVu = 1; // View: 0 = Gallery, 1 = List
 var curSt = 0; // State: 0 = List, 1 = Detail
 var curIt = 0; // Item
 var curFl = 0; // Sitemap FL
@@ -293,13 +293,13 @@ function switchView() {
 		curVu = 1;
 		//contDiv.style.transform = "translateX(-100%)";
 		// Gallery
-		//galMaxH = "0rem";
+		galMaxH = "0rem";
 		// List
 		if(curSt == 0) {
-			//lstDiv.style.maxHeight = "" + lstArr.length * 12 + "rem"
+			lstDiv.style.maxHeight = "" + lstArr.length * 12 + "rem"
 		}
 		else {
-			//lstDiv.style.maxHeight = lstMaxH
+			lstDiv.style.maxHeight = lstMaxH
 		}
 		// Switcher
 		opacity0(txt); setTimeout(function() {txt.innerText = "View Gallery"; opacity1(txt)}, 400);
@@ -307,7 +307,7 @@ function switchView() {
 	// List to Gallery
 	else {
 		curVu = 0;
-		//contDiv.style.transform = "translateX(0%)";
+		contDiv.style.transform = "translateX(0%)";
 		// Gallery
 		if(galArr.length%2 != 0) {galNum = galArr.length + 1}
 		else {galNum = galArr.length}
