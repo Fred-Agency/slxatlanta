@@ -255,6 +255,12 @@ function filter() {
 					console.log(unitTypes[j][0][0]);
 					console.log('====');
 					console.log(tempData.name.toUpperCase());
+					console.log('====unitTypes==');
+					console.log(unitTypes[j]);
+					console.log('====units==');
+					console.log(units[j]);
+					console.log('====apts==');
+					console.log(apts[j]);
 				}
 			}
 			else {filterCheck(lstArr[i], tempAttrs)}
