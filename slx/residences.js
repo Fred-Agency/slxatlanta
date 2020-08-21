@@ -63,6 +63,7 @@ function changeFloor(i) {
 	}, z);
 	// Show new floor's units + set new curFl
 	setTimeout(function() {opacity1(sitemapConts[y]); curFl = y}, z + 200)
+	console.log(curFl);
 }
 
 function changeSlide() {
@@ -256,6 +257,7 @@ function filter() {
 			else {filterCheck(lstArr[i], tempAttrs)}
 		}
 	changeFloor()
+		console.log(lstArr[i]);
 	}, x)
 }
 
