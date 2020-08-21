@@ -171,7 +171,6 @@ function aptFltr(apt, x) {
 }
 
 function filterCheck(item, unitType, units, apts) {
-	filter();
 	if(dataReady == true) {
 		let aptVis = [];
 		// Determine visibility of each unit of this unit type
